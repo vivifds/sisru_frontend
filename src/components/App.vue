@@ -8,4 +8,8 @@
   </p>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  color: var(--primary);
+}
+</style>

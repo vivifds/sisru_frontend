@@ -1,0 +1,110 @@
+:root {
+  /* Colors */
+  --primary: #2c3e6b;
+  --base-desktop-gradient-primary: linear-gradient(
+    90deg,
+    rgba(110, 137, 205, 1) 0%,
+    rgba(44, 62, 107, 1) 100%
+  );
+  --primary-shades-shade-1: #2c3e6b;
+  --primary-shades-shade-2: #41517a;
+  --primary-shades-shade-3: #566589;
+  --primary-shades-shade-4: #6b7897;
+  --primary-shades-shade-5: #808ba6;
+  --primary-shades-shade-6: #969fb5;
+  --primary-shades-shade-7: #d5d8e1;
+  --type-dark: #3a3541;
+  --type-light: #89868d;
+  --type-disable: #b4b2b7;
+  --surface-white: #ffffff;
+  --surface-background: #fdfdff;
+  --surface-background-2: #e7e7f4;
+  --surface-border: #dbdcde;
+  --status-success: #2dccff;
+  --status-success-background: #e0f8ff;
+  --status-danger: #f93131;
+  --status-danger-background: #ffdfdf;
+  --cafe-background: #fff8e8;
+  --cafe-type: #594e34;
+  --almoco-background: #f4fdf4;
+  --almoco-type: #376d36;
+  --vegetariano-background: #ffeaf5;
+  --vegetariano-type: #614e58;
+  --jantar-background: #f0f6ff;
+  --jantar-type: #4e5561;
+  --vegetariano-jantar-background: #f6f0ff;
+  --vegetariano-jantar-type: #5e4e61;
+  --error: #ba1a1a;
+  --on-error: #93000a;
+  --sucess: #227f0c;
+  --on-sucess: #376d36;
+  --warning: #e09f25;
+}
+.lato-thin {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--surface-background);
+  color: var(--type-dark);
+  font-family: Lato, sans-serif;
+}

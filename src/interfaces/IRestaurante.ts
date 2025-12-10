@@ -1,6 +1,7 @@
 export default interface IRestaurante {
-  nome: string;
-  endereco: string;
-  ocupacao: number;
-  campus: string;
+  id: number
+  nome: string
+  campus: string
+  endereco: string
+  capacidade: number
 }
