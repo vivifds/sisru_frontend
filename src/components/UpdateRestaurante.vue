@@ -55,43 +55,33 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="page-container">
-    <div class="card">
-      <PageHeader title="Editar restaurante" @back="handleBack" />
+  <div class="card">
+    <PageHeader title="Editar restaurante" @back="handleBack" />
 
-      <form class="form-body" @submit.prevent="handleSubmit">
-        <div class="form-grid">
-          <BaseInput label="Nome" v-model="form.name" placeholder="Digite o nome" />
+    <form class="form-body" @submit.prevent="handleSubmit">
+      <div class="form-grid">
+        <BaseInput label="Nome" v-model="form.name" placeholder="Digite o nome" />
 
-          <BaseInput label="Endereço" v-model="form.address" placeholder="Digite o endereço" />
+        <BaseInput label="Endereço" v-model="form.address" placeholder="Digite o endereço" />
 
-          <BaseInput
-            label="Capacidade de Ocupação"
-            type="number"
-            v-model="form.capacity"
-            placeholder="0"
-          />
+        <BaseInput
+          label="Capacidade de Ocupação"
+          type="number"
+          v-model="form.capacity"
+          placeholder="0"
+        />
 
-          <BaseSelect label="Campus" :options="campusOptions" v-model="form.campus" />
-        </div>
+        <BaseSelect label="Campus" :options="campusOptions" v-model="form.campus" />
+      </div>
 
-        <div class="form-actions">
-          <ActionButton label="Salvar alterações" type="submit" :disabled="isLoading" />
-        </div>
-      </form>
-    </div>
+      <div class="form-actions">
+        <ActionButton label="Salvar alterações" type="submit" :disabled="isLoading" />
+      </div>
+    </form>
   </div>
 </template>
 
 <style scoped>
-.page-container {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  background-color: var(--surface-background);
-  min-height: 100vh;
-}
-
 .card {
   background-color: var(--surface-white);
   width: 100%;

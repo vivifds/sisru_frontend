@@ -18,7 +18,17 @@ export default {
 </script>
 
 <template>
-  <UpdateRestaurante v-if="paginaAtual === 'UpdateRestaurante'" />
+  <div class="page-container">
+    <UpdateRestaurante v-if="paginaAtual === 'UpdateRestaurante'" />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.page-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--surface-background);
+  min-height: 100vh;
+}
+</style>
