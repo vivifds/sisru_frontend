@@ -5,30 +5,15 @@ import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect, { type SelectOption } from "@/components/BaseSelect.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import type IRestaurante from "@/interfaces/IRestaurante";
-import { RestauranteGetById, RestauranteUpdate } from "../services/restaurantes";
+import { RestauranteCreate } from "../services/restaurantes";
 
 export default defineComponent({
-  name: "UpdateRestaurante",
-  props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-  },
+  name: "CreateRestaurante",
   components: {
     PageHeader,
     BaseInput,
     BaseSelect,
     ActionButton,
-  },
-  mounted() {
-    RestauranteGetById(this.id)
-      .then((data) => {
-        this.form = data;
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar restaurante:", error);
-      });
   },
   data() {
     return {
@@ -51,24 +36,24 @@ export default defineComponent({
     async handleSubmit() {
       this.isLoading = true;
       try {
-        await RestauranteUpdate(this.id, this.form);
-        console.log("Restaurante atualizado com sucesso");
-        this.$emit("updatedRestaurante", this.form);
+        await RestauranteCreate(this.form);
+        console.log("Restaurante criado com sucesso");
+        this.$emit("createdRestaurante", this.form);
       } catch (error) {
-        console.error("Erro ao atualizar restaurante:", error);
+        console.error("Erro ao criar restaurante:", error);
         alert("Erro ao atualizar restaurante.");
       } finally {
         this.isLoading = false;
       }
     },
   },
-  emits: ["updatedRestaurante"],
+  emits: ["createdRestaurante"],
 });
 </script>
 
 <template>
   <div class="card">
-    <PageHeader title="Editar restaurante" @back="handleBack" />
+    <PageHeader title="Cadastro de novo restaurante" @back="handleBack" />
 
     <form class="form-body" @submit.prevent="handleSubmit">
       <div class="form-grid">
@@ -87,7 +72,7 @@ export default defineComponent({
       </div>
 
       <div class="form-actions">
-        <ActionButton label="Salvar alterações" type="submit" :disabled="isLoading" />
+        <ActionButton label="Cadastrar" type="submit" :disabled="isLoading" />
       </div>
     </form>
   </div>

@@ -36,7 +36,7 @@ export async function RestauranteUpdate(id: number, restaurante: IRestaurante) {
     const reponse = await apiPut<IRestaurante>(`/restaurantes/${id}`, restaurante);
     return reponse;
   } catch (error) {
-    console.error("Erro ao atualizar restaurante:", error);
+    console.error("Erro ao realizar a atualização do restaurante:", error);
     throw error;
   }
 }
