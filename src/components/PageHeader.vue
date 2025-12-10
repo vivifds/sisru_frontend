@@ -48,8 +48,8 @@ export default defineComponent({
 
 .header-title {
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 900;
   font-family: "Lato", sans-serif;
 }
 
@@ -68,5 +68,11 @@ export default defineComponent({
 
 .header-back-button:hover {
   opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-title {
+    font-size: 1.5em;
+  }
 }
 </style>

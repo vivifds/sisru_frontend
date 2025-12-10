@@ -1,5 +1,5 @@
 <script lang="ts">
-import UpdateRestaurante from "./UpdateRestaurante.vue";
+import UpdateRestaurante from "./components/UpdateRestaurante.vue";
 type Pagina = "VisualizarRestaurantes" | "CreateRestaurante" | "UpdateRestaurante";
 
 export default {
@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div class="page-container">
-    <UpdateRestaurante v-if="paginaAtual === 'UpdateRestaurante'" />
+    <UpdateRestaurante v-if="paginaAtual === 'UpdateRestaurante'" :id="2" />
   </div>
 </template>
 

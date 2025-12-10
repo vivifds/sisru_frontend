@@ -4,33 +4,39 @@ import PageHeader from "@/components/PageHeader.vue";
 import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect, { type SelectOption } from "@/components/BaseSelect.vue";
 import ActionButton from "@/components/ActionButton.vue";
-
-interface RestaurantForm {
-  name: string;
-  address: string;
-  capacity: number;
-  campus: string;
-}
+import type IRestaurante from "@/interfaces/IRestaurante";
+import { RestauranteGetById, RestauranteUpdate } from "../services/restaurantes";
 
 export default defineComponent({
   name: "UpdateRestaurante",
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
   components: {
     PageHeader,
     BaseInput,
     BaseSelect,
     ActionButton,
   },
+  mounted() {
+    RestauranteGetById(this.id)
+      .then((data) => {
+        this.form = data;
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar restaurante:", error);
+      });
+  },
   data() {
     return {
-      form: {
-        name: "Restaurante do Campus Jorge Amado",
-        address: "Rodovia Ilhéus/Itabuna - KM 22, Ilhéus - BA",
-        capacity: 800,
-        campus: "campus_1",
-      } as RestaurantForm,
+      form: {} as IRestaurante,
       campusOptions: [
-        { label: "Campus Jorge Amado", value: "campus_1" },
-        { label: "Campus Paralela", value: "campus_2" },
+        { label: "Campus Jorge Amado" },
+        { label: "Campus Paulo Freire" },
+        { label: "Campus Sosígenes Costa" },
       ] as SelectOption[],
       isLoading: false,
     };
@@ -39,13 +45,13 @@ export default defineComponent({
     handleBack(): void {
       console.log("Voltar");
     },
-    async handleSubmit(): Promise<void> {
+    async handleSubmit() {
       this.isLoading = true;
       try {
-        console.log("Saving...", this.form);
-        // Simular chamada API
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        alert("Salvo com sucesso!");
+        await RestauranteUpdate(this.id, this.form);
+        console.log("Restaurante atualizado com sucesso");
+      } catch (error) {
+        console.error("Erro ao atualizar restaurante:", error);
       } finally {
         this.isLoading = false;
       }
@@ -60,14 +66,14 @@ export default defineComponent({
 
     <form class="form-body" @submit.prevent="handleSubmit">
       <div class="form-grid">
-        <BaseInput label="Nome" v-model="form.name" placeholder="Digite o nome" />
+        <BaseInput label="Nome" v-model="form.nome" placeholder="Digite o nome" />
 
-        <BaseInput label="Endereço" v-model="form.address" placeholder="Digite o endereço" />
+        <BaseInput label="Endereço" v-model="form.endereco" placeholder="Digite o endereço" />
 
         <BaseInput
           label="Capacidade de Ocupação"
           type="number"
-          v-model="form.capacity"
+          v-model="form.capacidade"
           placeholder="0"
         />
 
