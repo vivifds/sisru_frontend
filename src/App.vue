@@ -3,7 +3,6 @@ import { ref, computed, onMounted } from 'vue'
 import TopBar from './components/TopBar.vue'
 import RestaurantTable from './components/RestaurantTable.vue'
 import EmptyState from './components/EmptyState.vue'
-import RestaurantModal from './components/RestaurantModal.vue'
 import { useRestaurants } from './stores/useRestaurants'
 
 const store = useRestaurants()
@@ -46,17 +45,18 @@ async function handleSave(payload: {
 
 <template>
   <div class="container">
-    <h1 class="page-title">
-      <span class="back" aria-hidden="true">
-        <!-- seta para trás -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M15 18l-6-6 6-6" stroke-width="2" />
-        </svg>
-      </span>
-      Restaurantes Cadastrados
-    </h1>
+    <header class="page-header">
+      <div class="header-left">
+        <button class="back-btn" aria-label="Voltar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 18l-6-6 6-6" stroke-width="2" />
+          </svg>
+        </button>
+        <h1 class="page-title">Restaurantes Cadastrados</h1>
 
-    <TopBar v-model:query="query" @create="openCreate" />
+        <TopBar v-model:query="query" @create="openCreate" />
+      </div>
+    </header>
 
     <div class="card">
       <RestaurantTable

@@ -18,3 +18,28 @@ const props = defineProps<{
     {{ label }}
   </button>
 </template>
+
+<style scoped>
+/* Primary Button */
+.btn {
+  height: 44px;
+  padding: 0 20px;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: var(--surface-white);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--surface-background-2);
+  border-color: var(--primary);
+}
+</style>

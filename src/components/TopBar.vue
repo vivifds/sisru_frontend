@@ -27,3 +27,14 @@ function onCreate() {
     <PrimaryButton label="Cadastrar novo restaurante" icon="plus" @click="onCreate" />
   </div>
 </template>
+
+<style scoped>
+.topbar {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 24px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+</style>
